@@ -87,40 +87,12 @@ const menu = [
 ];
 
 const sectionCenter = document.querySelector(".section-center");
-const filterBtns = document.querySelectorAll(".filter-btn");
+const btnContainer = document.querySelector(".btn-container");
 
 // load items
 window.addEventListener("DOMContentLoaded", function () {
   displayMenuItems(menu);
-  const categories = menu.reduce(
-    function (values, item) {
-      if (!values.includes(item.category)) {
-        values.push(item.category);
-      }
-      return values;
-    },
-    ["all"]
-  );
-  console.log(categories);
-});
-
-// filter items
-filterBtns.forEach(function (btn) {
-  btn.addEventListener("click", function (event) {
-    const category = event.currentTarget.dataset.id;
-    // console.log(category);
-    const menuCategory = menu.filter(function (menuItem) {
-      // console.log(menuItem);
-      if (category === menuItem.category) {
-        return menuItem;
-      }
-    });
-    if (category === "all") {
-      displayMenuItems(menu);
-    } else {
-      displayMenuItems(menuCategory);
-    }
-  });
+  displayMenuButtons();
 });
 
 function displayMenuItems(menuItems) {
@@ -140,4 +112,48 @@ function displayMenuItems(menuItems) {
   });
   displayMenu = displayMenu.join("");
   sectionCenter.innerHTML = displayMenu;
+}
+
+function displayMenuButtons() {
+  // To filter unique category names
+  const categories = menu.reduce(
+    function (values, item) {
+      if (!values.includes(item.category)) {
+        values.push(item.category);
+      }
+      return values;
+    },
+    ["all"]
+  );
+
+  // create buttons using dom
+  const categoryBtns = categories
+    .map(function (category) {
+      return `<button type="button" class="filter-btn" data-id="${category}">${category}</button>`;
+    })
+    .join("");
+
+  btnContainer.innerHTML = categoryBtns;
+
+  // Since btns are create using dom but not already in HTML, filterBtns will be defined once buttons are created
+  const filterBtns = btnContainer.querySelectorAll(".filter-btn");
+
+  // filter items
+  filterBtns.forEach(function (btn) {
+    btn.addEventListener("click", function (event) {
+      const category = event.currentTarget.dataset.id;
+      // console.log(category);
+      const menuCategory = menu.filter(function (menuItem) {
+        // console.log(menuItem);
+        if (category === menuItem.category) {
+          return menuItem;
+        }
+      });
+      if (category === "all") {
+        displayMenuItems(menu);
+      } else {
+        displayMenuItems(menuCategory);
+      }
+    });
+  });
 }
