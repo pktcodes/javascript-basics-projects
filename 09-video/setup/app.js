@@ -3,8 +3,8 @@
 // The load event is fired when the whole page has loaded, including all dependent resources such as stylesheets and images.
 
 const video = document.querySelector(".video-container");
-console.log(video);
 const btn = document.querySelector(".switch-btn");
+const preloader = document.querySelector(".preloader");
 
 btn.addEventListener("click", function () {
   if (!btn.classList.contains("slide")) {
@@ -14,4 +14,8 @@ btn.addEventListener("click", function () {
     btn.classList.remove("slide");
     video.play();
   }
+});
+
+window.addEventListener("load", function () {
+  preloader.classList.add("hide-preloader");
 });
