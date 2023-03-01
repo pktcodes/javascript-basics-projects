@@ -16,7 +16,7 @@ navToggle.addEventListener("click", function () {
   //   linksContainer.classList.toggle("show-links");
   const containerHeight = linksContainer.getBoundingClientRect().height;
   const linksHeight = links.getBoundingClientRect().height;
-  console.log(linksHeight);
+  // console.log(linksHeight);
   if (containerHeight === 0) {
     linksContainer.style.height = `${linksHeight}px`;
   } else {
@@ -47,3 +47,18 @@ window.addEventListener("scroll", function () {
 
 // ********** smooth scroll ************
 // select links
+const scrollLinks = document.querySelectorAll(".scroll-link");
+scrollLinks.forEach(function (link) {
+  link.addEventListener("click", function (event) {
+    // prevent default behaviour of scroll
+    event.preventDefault();
+
+    // navigate to specific spot
+    const id = event.currentTarget.getAttribute("href").slice(1);
+    const element = document.getElementById(id);
+    const position = element.offsetTop;
+    console.log(position);
+    window.scrollTo({ left: 0, top: position });
+    linksContainer.style.height = 0;
+  });
+});
