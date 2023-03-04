@@ -26,7 +26,15 @@ const giveaway = document.querySelector(".giveaway");
 const deadline = document.querySelector(".deadline");
 const countdownItems = document.querySelectorAll(".deadline-format h4");
 
-const futureDate = new Date(2023, 2, 3, 24, 0, 0);
+const temp = new Date();
+const tempYear = temp.getFullYear();
+const tempMonth = temp.getMonth();
+const tempDate = temp.getDate();
+
+// const futureDate = new Date(2023, 2, 4, 11, 30, 0);
+
+// whenever the code is run, the application with countdown of 10 days
+const futureDate = new Date(tempYear, tempMonth, tempDate + 10, 11, 30, 00);
 
 const year = futureDate.getFullYear();
 
