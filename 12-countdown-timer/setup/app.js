@@ -34,7 +34,7 @@ const tempDate = temp.getDate();
 // const futureDate = new Date(2023, 2, 4, 11, 30, 0);
 
 // whenever the code is run, the application with countdown of 10 days
-const futureDate = new Date(tempYear, tempMonth, tempDate + 10, 11, 30, 00);
+const futureDate = new Date(tempYear, tempMonth, tempDate + 10, 11, 00, 00);
 
 const year = futureDate.getFullYear();
 
@@ -43,8 +43,16 @@ month = months[month];
 
 const date = futureDate.getDate();
 const weekday = weekdays[futureDate.getDay()];
-const hours = futureDate.getHours();
-const minutes = futureDate.getMinutes();
+
+let hours = futureDate.getHours();
+let minutes = futureDate.getMinutes();
+
+if (hours < 10) {
+  hours = `0${hours}`;
+}
+if (minutes < 10) {
+  minutes = `0${minutes}`;
+}
 
 giveaway.textContent = `giveway ends on ${weekday}, ${date} ${month} ${year} ${hours}:${minutes}am`;
 
