@@ -13,7 +13,7 @@ const clearBtn = document.querySelector(".clear-btn");
 
 /* Edit Option */
 let editElement;
-let editFlag = true;
+let editFlag = false;
 let editID = "";
 
 /* 
@@ -39,8 +39,19 @@ function addItem(event) {
   } else if (value && editFlag) {
     console.log("editing item");
   } else {
-    console.log("empty value");
+    displayAlert("please enter value", "danger");
   }
+}
+
+// Show Alert
+function displayAlert(text, action) {
+  alert.textContent = text;
+  alert.classList.add(`alert-${action}`);
+  // Remove Alert
+  setTimeout(function () {
+    alert.textContent = "";
+    alert.classList.remove(`alert-${action}`);
+  }, 1000);
 }
 
 /* 
