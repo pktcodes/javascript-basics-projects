@@ -13,7 +13,7 @@ const clearBtn = document.querySelector(".clear-btn");
 
 /* Edit Option */
 let editElement;
-let editFlag = false;
+let editFlag = true;
 let editID = "";
 
 /* 
@@ -34,9 +34,9 @@ function addItem(event) {
 
   const value = input.value;
   const id = new Date().getTime().toString();
-  if (value !== "" && editFlag === false) {
+  if (value && !editFlag) {
     console.log("add item to the list");
-  } else if (value !== "" && editFlag === true) {
+  } else if (value && editFlag) {
     console.log("editing item");
   } else {
     console.log("empty value");
