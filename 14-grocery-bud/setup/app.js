@@ -35,7 +35,40 @@ function addItem(event) {
   const value = input.value;
   const id = new Date().getTime().toString();
   if (value && !editFlag) {
-    console.log("add item to the list");
+    // Create Element
+    const element = document.createElement("article");
+    // Add class
+    element.classList.add("grocery-item");
+    // Add data-id
+    element.setAttribute("data-id", id);
+
+    // John's Approach
+    // const dataAttribute = document.createAttribute("data-id");
+    // dataAttribute.value = id;
+    // element.setAttributeNode(dataAttribute);
+
+    console.log(element);
+    console.log(element.dataset);
+
+    element.innerHTML = `<p class="title">${value}</p>
+            <div class="btn-container">
+              <button class="edit-btn">
+                <i class="fas fa-edit"></i>
+              </button>
+              <button class="delete-btn">
+                <i class="fas fa-trash"></i>
+              </button>
+            </div>`;
+    // Append Child
+    list.appendChild(element);
+    // Display Alert
+    displayAlert("item added to the list", "success");
+    // Show Container
+    container.classList.add("show-container");
+    // Add to Local Storage
+    addToLocalStorage(id, value);
+    // Setback To Default
+    setBackToDefault();
   } else if (value && editFlag) {
     console.log("editing item");
   } else {
@@ -54,11 +87,19 @@ function displayAlert(text, action) {
   }, 1000);
 }
 
+// Setback To Default
+function setBackToDefault() {
+  console.log("set back to default");
+}
+
 /* 
 ======================
 LOCAL STORAGE
 ======================
 */
+function addToLocalStorage(id, value) {
+  console.log("added to local storage");
+}
 
 /* 
 ======================
