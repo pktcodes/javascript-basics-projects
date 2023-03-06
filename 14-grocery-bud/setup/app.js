@@ -47,9 +47,6 @@ function addItem(event) {
     // dataAttribute.value = id;
     // element.setAttributeNode(dataAttribute);
 
-    console.log(element);
-    console.log(element.dataset);
-
     element.innerHTML = `<p class="title">${value}</p>
             <div class="btn-container">
               <button class="edit-btn">
@@ -89,7 +86,10 @@ function displayAlert(text, action) {
 
 // Setback To Default
 function setBackToDefault() {
-  console.log("set back to default");
+  input.value = "";
+  editFlag = false;
+  editID = "";
+  submitBtn.textContent = "submit";
 }
 
 /* 
