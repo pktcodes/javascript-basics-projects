@@ -60,8 +60,17 @@ function addItem(event) {
                 <i class="fas fa-trash"></i>
               </button>
             </div>`;
+    // Delete Button
+    const deleteBtn = element.querySelector(".delete-btn");
+    deleteBtn.addEventListener("click", deleteItem);
+
+    // Edit Button
+    const editBtn = element.querySelector(".edit-btn");
+    editBtn.addEventListener("click", editItem);
+
     // Append Child
     list.appendChild(element);
+
     // Display Alert
     displayAlert("item added to the list", "success");
     // Show Container
@@ -101,6 +110,16 @@ function clearItems() {
   displayAlert("empty list", "danger");
   setBackToDefault();
   // localStorage.removeItem("list");
+}
+
+// Delete Item
+function deleteItem() {
+  console.log("item deleted");
+}
+
+// Edit item
+function editItem() {
+  console.log("edit item");
 }
 
 // Setback To Default
