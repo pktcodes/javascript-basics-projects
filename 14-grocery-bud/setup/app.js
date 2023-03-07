@@ -113,8 +113,20 @@ function clearItems() {
 }
 
 // Delete Item
-function deleteItem() {
+function deleteItem(event) {
   console.log("item deleted");
+  const element = event.currentTarget.parentElement.parentElement;
+  const id = element.dataset.id;
+  list.removeChild(element);
+  // No items - Hide Container for Clear Items Button
+  if (list.children.length === 0) {
+    container.classList.remove("show-container");
+  }
+  displayAlert("item deleted", "danger");
+  // When we edit and delete, we want to change submitbtn from edit to default
+  setBackToDefault();
+  // remove from local storage
+  removeFromLocalStorage(id);
 }
 
 // Edit item
@@ -138,6 +150,8 @@ LOCAL STORAGE
 function addToLocalStorage(id, value) {
   console.log("added to local storage");
 }
+
+function removeFromLocalStorage(id) {}
 
 /* 
 ======================
