@@ -166,6 +166,21 @@ function removeFromLocalStorage(id) {}
 function editLocalStorage(id, value) {}
 
 /* 
+=====================
+local storage API
+=====================
+Methods: 
+setItem()
+getItem()
+removeItem()
+always values as strings especially arrays
+*/
+localStorage.setItem("orange", JSON.stringify(["item1", "item2", "item3"]));
+const oranges = JSON.parse(localStorage.getItem("orange"));
+console.log(oranges);
+localStorage.removeItem("orange");
+
+/* 
 ======================
 SETUP ITEMS
 ======================
