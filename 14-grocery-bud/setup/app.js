@@ -80,7 +80,11 @@ function addItem(event) {
     // Setback To Default
     setBackToDefault();
   } else if (value && editFlag) {
-    console.log("editing item");
+    editElement.innerHTML = value;
+    displayAlert("value added", "success");
+    // edit local storage
+    editLocalStorage(editID, value);
+    setBackToDefault();
   } else {
     displayAlert("please enter value", "danger");
   }
@@ -114,7 +118,6 @@ function clearItems() {
 
 // Delete Item
 function deleteItem(event) {
-  console.log("item deleted");
   const element = event.currentTarget.parentElement.parentElement;
   const id = element.dataset.id;
   list.removeChild(element);
@@ -130,8 +133,15 @@ function deleteItem(event) {
 }
 
 // Edit item
-function editItem() {
-  console.log("edit item");
+function editItem(event) {
+  const element = event.currentTarget.parentElement.parentElement;
+  // set edit item
+  editElement = event.currentTarget.parentElement.previousElementSibling;
+  input.value = editElement.innerHTML;
+  input.focus();
+  editFlag = true;
+  editID = element.dataset.id;
+  submitBtn.textContent = "edit";
 }
 
 // Setback To Default
@@ -152,6 +162,8 @@ function addToLocalStorage(id, value) {
 }
 
 function removeFromLocalStorage(id) {}
+
+function editLocalStorage(id, value) {}
 
 /* 
 ======================
