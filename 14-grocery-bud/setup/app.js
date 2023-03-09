@@ -169,18 +169,31 @@ function addToLocalStorage(id, value) {
   // }
 
   /* Using Ternary Operator */
-  let items = localStorage.getItem("list")
-    ? JSON.parse(localStorage.getItem("list"))
-    : [];
+  let items = getLocalStorage();
   console.log(items);
   items.push(grocery);
   localStorage.setItem("list", JSON.stringify(items));
   // console.log("added to local storage");
 }
 
-function removeFromLocalStorage(id) {}
+function removeFromLocalStorage(id) {
+  let items = getLocalStorage();
+
+  items = items.filter(function (item) {
+    if (item.id !== id) {
+      return item;
+    }
+  });
+  localStorage.setItem("list", JSON.stringify(items));
+}
 
 function editLocalStorage(id, value) {}
+
+function getLocalStorage() {
+  return localStorage.getItem("list")
+    ? JSON.parse(localStorage.getItem("list"))
+    : [];
+}
 
 /* 
 =====================
