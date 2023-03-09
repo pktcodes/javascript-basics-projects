@@ -113,7 +113,7 @@ function clearItems() {
   container.classList.remove("show-container");
   displayAlert("empty list", "danger");
   setBackToDefault();
-  // localStorage.removeItem("list");
+  localStorage.removeItem("list");
 }
 
 // Delete Item
@@ -187,7 +187,16 @@ function removeFromLocalStorage(id) {
   localStorage.setItem("list", JSON.stringify(items));
 }
 
-function editLocalStorage(id, value) {}
+function editLocalStorage(id, value) {
+  let items = getLocalStorage();
+  items = items.map(function (item) {
+    if (item.id === id) {
+      item.value = value;
+    }
+    return item;
+  });
+  localStorage.setItem("list", JSON.stringify(items));
+}
 
 function getLocalStorage() {
   return localStorage.getItem("list")
