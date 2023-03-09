@@ -27,6 +27,9 @@ form.addEventListener("submit", addItem);
 /* Clear Items */
 clearBtn.addEventListener("click", clearItems);
 
+/* Load Items */
+window.addEventListener("DOMContentLoaded", setupItems);
+
 /* 
 ======================
 FUNCTIONS
@@ -39,38 +42,7 @@ function addItem(event) {
   const value = input.value;
   const id = new Date().getTime().toString();
   if (value && !editFlag) {
-    // Create Element
-    const element = document.createElement("article");
-    // Add class
-    element.classList.add("grocery-item");
-    // Add data-id
-    element.setAttribute("data-id", id);
-
-    // John's Approach
-    // const dataAttribute = document.createAttribute("data-id");
-    // dataAttribute.value = id;
-    // element.setAttributeNode(dataAttribute);
-
-    element.innerHTML = `<p class="title">${value}</p>
-            <div class="btn-container">
-              <button class="edit-btn">
-                <i class="fas fa-edit"></i>
-              </button>
-              <button class="delete-btn">
-                <i class="fas fa-trash"></i>
-              </button>
-            </div>`;
-    // Delete Button
-    const deleteBtn = element.querySelector(".delete-btn");
-    deleteBtn.addEventListener("click", deleteItem);
-
-    // Edit Button
-    const editBtn = element.querySelector(".edit-btn");
-    editBtn.addEventListener("click", editItem);
-
-    // Append Child
-    list.appendChild(element);
-
+    createItem(id, value);
     // Display Alert
     displayAlert("item added to the list", "success");
     // Show Container
@@ -170,7 +142,7 @@ function addToLocalStorage(id, value) {
 
   /* Using Ternary Operator */
   let items = getLocalStorage();
-  console.log(items);
+  // console.log(items);
   items.push(grocery);
   localStorage.setItem("list", JSON.stringify(items));
   // console.log("added to local storage");
@@ -224,3 +196,51 @@ always values as strings especially arrays
 SETUP ITEMS
 ======================
 */
+function setupItems() {
+  let items = getLocalStorage();
+  if (items.length > 0) {
+    items.forEach(function (item) {
+      createItem(item.id, item.value);
+    });
+    container.classList.add("show-container");
+  }
+}
+
+/* 
+======================
+CREATE ITEM
+======================
+*/
+function createItem(id, value) {
+  // Create Element
+  const element = document.createElement("article");
+  // Add class
+  element.classList.add("grocery-item");
+  // Add data-id
+  element.setAttribute("data-id", id);
+
+  // John's Approach
+  // const dataAttribute = document.createAttribute("data-id");
+  // dataAttribute.value = id;
+  // element.setAttributeNode(dataAttribute);
+
+  element.innerHTML = `<p class="title">${value}</p>
+            <div class="btn-container">
+              <button class="edit-btn">
+                <i class="fas fa-edit"></i>
+              </button>
+              <button class="delete-btn">
+                <i class="fas fa-trash"></i>
+              </button>
+            </div>`;
+  // Delete Button
+  const deleteBtn = element.querySelector(".delete-btn");
+  deleteBtn.addEventListener("click", deleteItem);
+
+  // Edit Button
+  const editBtn = element.querySelector(".edit-btn");
+  editBtn.addEventListener("click", editItem);
+
+  // Append Child
+  list.appendChild(element);
+}
