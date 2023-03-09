@@ -158,7 +158,24 @@ LOCAL STORAGE
 ======================
 */
 function addToLocalStorage(id, value) {
-  console.log("added to local storage");
+  const grocery = { id: id, value: value };
+
+  /* Using If else statement */
+  // let items = localStorage.getItem("list");
+  // if (items) {
+  //   items = JSON.parse(localStorage.getItem("list"));
+  // } else {
+  //   items = [];
+  // }
+
+  /* Using Ternary Operator */
+  let items = localStorage.getItem("list")
+    ? JSON.parse(localStorage.getItem("list"))
+    : [];
+  console.log(items);
+  items.push(grocery);
+  localStorage.setItem("list", JSON.stringify(items));
+  // console.log("added to local storage");
 }
 
 function removeFromLocalStorage(id) {}
@@ -175,10 +192,10 @@ getItem()
 removeItem()
 always values as strings especially arrays
 */
-localStorage.setItem("orange", JSON.stringify(["item1", "item2", "item3"]));
-const oranges = JSON.parse(localStorage.getItem("orange"));
-console.log(oranges);
-localStorage.removeItem("orange");
+// localStorage.setItem("orange", JSON.stringify(["item1", "item2", "item3"]));
+// const oranges = JSON.parse(localStorage.getItem("orange"));
+// console.log(oranges);
+// localStorage.removeItem("orange");
 
 /* 
 ======================
