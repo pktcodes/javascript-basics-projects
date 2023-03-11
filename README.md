@@ -1,46 +1,65 @@
-# Vanilla JS Projects
+# HTML & CSS Mini Projects
 
-#### Enroll In The Course
+#### 01. Color Flipper
 
-[My Javascript Course](https://www.udemy.com/course/javascript-tutorial-for-beginners-w/?referralCode=DD9FA6C0D976918D3E1C)
+https://javascript-basics-projects-prod.netlify.app/01-color-flipper/setup/index.html
 
-#### Support
+#### 02. Counter
 
-Find the Content Useful? [You can always buy me a coffee](https://www.buymeacoffee.com/johnsmilga)
+https://javascript-basics-projects-prod.netlify.app/02-counter/setup/index.html
 
-## You can see all projects in action here
+#### 03 - Reviews
 
-[Projects](https://www.vanillajavascriptprojects.com/)
+https://javascript-basics-projects-prod.netlify.app/03-reviews/setup/index.html
 
-1. Color Flipper
-2. Counter
-3. Reviews
-4. Navbar
-5. Sidebar
-6. Modal
-7. Questions
-8. Menu
-9. Video
-10. Scroll
-11. Tabs
-12. Countdown Timer
-13. Lorem Ipsum
-14. Grocery Bud
-15. Slider
+#### 04 - Navbar
 
-#### Course Exclusive
+https://javascript-basics-projects-prod.netlify.app/04-navbar/setup/index.html
 
-16. Counters (OOP)
-17. Gallery (OOP)
-18. Numbers
-19. Dark Mode
-20. Filters
-21. Dad Jokes
-22. Products
-23. Random User
-24. Cocktails
-25. Slider
-26. Stripe Submenus
-27. Pagination
-28. Wikipedia
-29. Comfy Sloth
+#### 05 - Sidebar
+
+https://javascript-basics-projects-prod.netlify.app/05-sidebar/setup/index.html
+
+#### 06 - Modal
+
+https://javascript-basics-projects-prod.netlify.app/06-modal/setup/index.html
+
+#### 07 - Questions
+
+https://javascript-basics-projects-prod.netlify.app/07-questions/setup/index.html
+
+#### 08 - Menu
+
+https://javascript-basics-projects-prod.netlify.app/08-menu/setup/index.html
+
+#### 09 - Video
+
+https://javascript-basics-projects-prod.netlify.app/09-video/setup/index.html
+
+#### 10 - Scroll
+
+https://javascript-basics-projects-prod.netlify.app/10-scroll/setup/index.html
+
+#### 11 - Tabs
+
+https://javascript-basics-projects-prod.netlify.app/11-tabs/setup/index.html
+
+#### 12 - Countdown Timer
+
+https://javascript-basics-projects-prod.netlify.app/12-countdown-timer/setup/index.html
+
+#### 13 - Lorem Ipsum
+
+https://javascript-basics-projects-prod.netlify.app/13-lorem-ipsum/setup/index.html
+
+#### 14 - Grocery Bud
+
+https://javascript-basics-projects-prod.netlify.app/14-grocery-bud/setup/index.html
+
+#### 15 - Slider
+
+https://javascript-basics-projects-prod.netlify.app/15-slider/setup/index.html
+
+---
+
+_Note: I have developed these projects as part of Javascript Tutorial and Projects Course taught by John Smilga._
