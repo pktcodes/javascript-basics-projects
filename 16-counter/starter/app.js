@@ -12,12 +12,23 @@ function getElement(selection) {
 /* Constructor Function */
 function Counter(element, value) {
   this.counter = element;
+  this.intialValue = value;
   this.value = value;
   this.decreaseBtn = element.querySelector(".decrease");
   this.resetBtn = element.querySelector(".reset");
   this.increaseBtn = element.querySelector(".increase");
   this.valueDOM = element.querySelector(".value");
   this.valueDOM.textContent = this.value;
+
+  // Bind "this" to the function
+  this.increase = this.increase.bind(this);
+  this.decrease = this.decrease.bind(this);
+  this.reset = this.reset.bind(this);
+
+  console.log(this);
+  this.increaseBtn.addEventListener("click", this.increase);
+  this.decreaseBtn.addEventListener("click", this.decrease);
+  this.resetBtn.addEventListener("click", this.reset);
 }
 
 /* Prototype */
@@ -33,16 +44,10 @@ Counter.prototype.decrease = function () {
 };
 
 Counter.prototype.reset = function () {
-  this.value = 0;
+  this.value = this.intialValue;
   this.valueDOM.textContent = this.value;
 };
 
 /* Creating Instances */
 const firstCounter = new Counter(getElement(".first-counter"), 100);
 const secondCounter = new Counter(getElement(".second-counter"), 200);
-
-firstCounter.increase();
-firstCounter.increase();
-firstCounter.increase();
-firstCounter.decrease();
-secondCounter.reset();
