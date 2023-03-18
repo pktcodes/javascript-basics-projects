@@ -13,7 +13,115 @@
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <h2>gallery project starter</h2>
+    <!-- Nature -->
+    <section class="section nature">
+      <img
+        src="./images/nature-1.jpeg"
+        alt="nature-image"
+        class="img"
+        data-id="1"
+        title="nature-1"
+      />
+      <img
+        src="./images/nature-2.jpeg"
+        alt="nature-image"
+        class="img"
+        data-id="2"
+        title="nature-2"
+      />
+      <img
+        src="./images/nature-3.jpeg"
+        alt="nature-image"
+        class="img"
+        data-id="3"
+        title="nature-3"
+      />
+    </section>
+
+    <!-- City -->
+    <section class="section city">
+      <img
+        src="./images/city-1.jpeg"
+        alt="city-image"
+        class="img"
+        data-id="1"
+        title="city-1"
+      />
+      <img
+        src="./images/city-2.jpeg"
+        alt="city-image"
+        class="img"
+        data-id="2"
+        title="city-2"
+      />
+      <img
+        src="./images/city-3.jpeg"
+        alt="city-image"
+        class="img"
+        data-id="3"
+        title="city-3"
+      />
+      <img
+        src="./images/city-4.jpeg"
+        alt="city-image"
+        class="img"
+        data-id="4"
+        title="city-4"
+      />
+      <img
+        src="./images/city-5.jpeg"
+        alt="city-image"
+        class="img"
+        data-id="5"
+        title="city-5"
+      />
+
+      <!-- Modal -->
+      <div class="modal">
+        <!-- Close Button -->
+        <button class="close-btn">
+          <i class="fas fa-times"></i>
+        </button>
+
+        <!-- Modal Content -->
+        <div class="modal-content">
+          <!-- Prev & Next Buttons -->
+          <button class="prev-btn">
+            <i class="fas fa-chevron-left"></i>
+          </button>
+          <button class="next-btn">
+            <i class="fas fa-chevron-right"></i>
+          </button>
+
+          <!-- Main Image -->
+          <img
+            src="./images/nature-1.jpeg"
+            alt="nature-image"
+            class="main-img"
+          />
+          <h3 class="image-name">nature-1</h3>
+
+          <!-- Modal-images -->
+          <div class="modal-images">
+            <img
+              src="./images/nature-1.jpeg"
+              alt="nature-image"
+              class="modal-img selected"
+              data-id="1"
+              title="nature-1"
+            />
+            <img
+              src="./images/nature-3.jpeg"
+              alt="nature-image"
+              class="modal-img"
+              data-id="3"
+              title="nature-3"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Link To JavaScript -->
     <script src="app.js"></script>
   </body>
 </html>
