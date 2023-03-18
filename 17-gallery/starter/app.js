@@ -9,6 +9,7 @@ function getElement(selection) {
 }
 
 function Gallery(element) {
+  this.container = element;
   // Making Array from NodeList using Spread Operator
   this.list = [...element.querySelectorAll(".img")];
 
@@ -19,7 +20,24 @@ function Gallery(element) {
   this.closeBtn = getElement(".close-btn");
   this.prevBtn = getElement(".prev-btn");
   this.nextBtn = getElement(".next-btn");
+  // Self
+  // self = this;
+
+  console.log("Gallery Constructor : ", this);
+
+  this.container.addEventListener(
+    "click",
+    function (event) {
+      // self.openModal();
+      this.openModal(event);
+    }.bind(this)
+  );
 }
+
+Gallery.prototype.openModal = function () {
+  console.log("Inside OpenModal : ", this);
+  this.modal.classList.add("open");
+};
 
 const nature = new Gallery(getElement(".nature"));
 const city = new Gallery(getElement(".city"));
