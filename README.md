@@ -1,4 +1,4 @@
-# HTML & CSS Mini Projects
+# JavaScript Basics Projects
 
 #### 01. Color Flipper
 
@@ -59,6 +59,14 @@ https://javascript-basics-projects-prod.netlify.app/14-grocery-bud/setup/index.h
 #### 15 - Slider
 
 https://javascript-basics-projects-prod.netlify.app/15-slider/setup/index.html
+
+#### 16 - Counter OOP
+
+https://javascript-basics-projects-prod.netlify.app/16-counter/starter/index.html
+
+#### 17 - Gallery OOP
+
+https://javascript-basics-projects-prod.netlify.app/17-gallery/starter/index.html
 
 ---
 
