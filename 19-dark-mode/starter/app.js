@@ -24,3 +24,5 @@ const articlesData = articles
   .join("");
 
 articlesContainer.innerHTML = articlesData;
+
+console.log(moment);
