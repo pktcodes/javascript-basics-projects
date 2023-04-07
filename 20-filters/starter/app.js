@@ -42,9 +42,20 @@ form.addEventListener("keyup", () => {
   displayProducts();
 });
 
-/* includes("") - gives true */
-// console.log(
-//   products.filter((product) => {
-//     return product.title.toLowerCase().includes("");
-//   })
-// );
+/* Buttons Filter*/
+const companiesDOM = document.querySelector(".companies");
+
+const displayButtons = () => {
+  const buttons = [
+    "all",
+    ...new Set(products.map((product) => product.company)),
+  ];
+
+  companiesDOM.innerHTML = buttons
+    .map((company) => {
+      return `<button type="button" class="btn company-btn data-id="${company}">${company}</button>`;
+    })
+    .join("");
+};
+
+displayButtons();
