@@ -53,9 +53,25 @@ const displayButtons = () => {
 
   companiesDOM.innerHTML = buttons
     .map((company) => {
-      return `<button type="button" class="btn company-btn data-id="${company}">${company}</button>`;
+      return `<button type="button" class="btn company-btn" data-id="${company}">${company}</button>`;
     })
     .join("");
 };
 
 displayButtons();
+
+companiesDOM.addEventListener("click", (event) => {
+  const element = event.target;
+  if (element.classList.contains("company-btn")) {
+    console.log(element.dataset.id);
+    if (element.dataset.id === "all") {
+      filteredProducts = [...products];
+    } else {
+      filteredProducts = products.filter(
+        (product) => product.company === element.dataset.id
+      );
+    }
+    searchInput.value = "";
+    displayProducts();
+  }
+});
