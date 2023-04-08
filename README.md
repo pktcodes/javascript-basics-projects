@@ -68,6 +68,18 @@ https://javascript-basics-projects-prod.netlify.app/16-counter/starter/index.htm
 
 https://javascript-basics-projects-prod.netlify.app/17-gallery/starter/index.html
 
+#### 18 - Numbers
+
+https://javascript-basics-projects-prod.netlify.app/18-numbers/starter/index.html
+
+#### 19 - Dark Mode
+
+https://javascript-basics-projects-prod.netlify.app/19-dark-mode/starter/index.html
+
+#### 20 - Filters
+
+https://javascript-basics-projects-prod.netlify.app/20-filters/starter/index.html
+
 ---
 
 _Note: I have developed these projects as part of Javascript Tutorial and Projects Course taught by John Smilga._
