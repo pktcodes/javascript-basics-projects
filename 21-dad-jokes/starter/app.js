@@ -13,11 +13,18 @@ const fetchJoke = async () => {
     const response = await fetch(url, {
       headers: { accept: "application/json", "user-agent": "string" },
     });
+    // console.log(response);
+    if (!response.ok) {
+      // It throws an error which will trigger the catch statement
+      throw new Error("Error...");
+    }
     const data = await response.json();
     result.textContent = data.joke;
   } catch (error) {
+    // Can access the throw error through "error.message"
+    // console.log(error.message);
+
     result.textContent = "There was an error...";
-    console.log(error);
   }
 };
 
