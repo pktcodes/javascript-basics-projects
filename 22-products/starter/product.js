@@ -35,6 +35,11 @@ const displayProduct = (product) => {
   const { url: img } = image[0];
 
   // Colors
+  const colorsList = colors
+    .map((color) => {
+      return `<span class="product-color" style="background-color: ${color}"></span>`;
+    })
+    .join("");
 
   document.title = title.toUpperCase();
 
@@ -45,8 +50,7 @@ const displayProduct = (product) => {
           <h5>${company}</h5>
           <span>$${price / 100}</span>
           <div class="colors">
-            <span class="product-color"></span>
-            <span class="product-color" style="background-color: red"></span>         
+            ${colorsList}       
           </div>
           <p>
           ${description}
