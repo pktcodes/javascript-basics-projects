@@ -80,6 +80,22 @@ https://javascript-basics-projects-prod.netlify.app/19-dark-mode/starter/index.h
 
 https://javascript-basics-projects-prod.netlify.app/20-filters/starter/index.html
 
+#### 21 - Dad Jokes
+
+https://javascript-basics-projects-prod.netlify.app/21-dad-jokes/starter/index.html
+
+#### 22 - Products
+
+https://javascript-basics-projects-prod.netlify.app/22-products/starter/index.html
+
+#### 23 - Random User
+
+https://javascript-basics-projects-prod.netlify.app/23-random-user/setup/index.html
+
+#### 24 - Cocktails
+
+https://javascript-basics-projects-prod.netlify.app/24-cocktails/setup/index.html
+
 ---
 
 _Note: I have developed these projects as part of Javascript Tutorial and Projects Course taught by John Smilga._
