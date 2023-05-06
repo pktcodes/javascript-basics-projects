@@ -46,12 +46,28 @@ linkBtns.forEach((btn) => {
   btn.addEventListener("mouseover", (event) => {
     const text = event.currentTarget.textContent;
     const tempBtn = event.currentTarget.getBoundingClientRect();
-    console.log(tempBtn);
     const center = (tempBtn.left + tempBtn.right) / 2;
     const bottom = tempBtn.bottom - 3;
 
-    submenu.style.left = `${center}px`;
-    submenu.style.top = `${bottom}px`;
-    submenu.classList.add("show");
+    const tempPage = subLinks.find(({ page }) => page === text);
+    if (tempPage) {
+      const { page, links } = tempPage;
+      submenu.innerHTML = `<section>
+                            <h4>${page}</h4>
+                            <div class="submenu-center col-2">
+                            ${links
+                              .map((link) => {
+                                const { label, icon, url } = link;
+                                return `<a href="${url}">
+                                          <i class="${icon}"></i>${label}
+                                        </a>`;
+                              })
+                              .join("")}
+                            </div>
+                          </section>`;
+      submenu.style.left = `${center}px`;
+      submenu.style.top = `${bottom}px`;
+      submenu.classList.add("show");
+    }
   });
 });
