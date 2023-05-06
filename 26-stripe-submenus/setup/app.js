@@ -5,7 +5,8 @@ const toggleBtn = getElement(".toggle-btn");
 const closeBtn = getElement(".close-btn");
 const sidebarWrapper = getElement(".sidebar-wrapper");
 const sidebarLinks = getElement(".sidebar-links");
-// const submenu = getElement(".submenu");
+const linkBtns = [...document.querySelectorAll(".link-btn")];
+const submenu = getElement(".submenu");
 const hero = getElement(".hero");
 const nav = getElement("nav");
 
@@ -17,8 +18,6 @@ toggleBtn.addEventListener("click", () => {
 closeBtn.addEventListener("click", () => {
   sidebarWrapper.classList.remove("show");
 });
-
-console.table(subLinks);
 
 /* Set SubLinks */
 sidebarLinks.innerHTML = subLinks
@@ -40,3 +39,19 @@ sidebarLinks.innerHTML = subLinks
             </article>`;
   })
   .join("");
+
+/* Links - Submenu */
+linkBtns.forEach((btn) => {
+  // console.dirxml(btn);
+  btn.addEventListener("mouseover", (event) => {
+    const text = event.currentTarget.textContent;
+    const tempBtn = event.currentTarget.getBoundingClientRect();
+    console.log(tempBtn);
+    const center = (tempBtn.left + tempBtn.right) / 2;
+    const bottom = tempBtn.bottom - 3;
+
+    submenu.style.left = `${center}px`;
+    submenu.style.top = `${bottom}px`;
+    submenu.classList.add("show");
+  });
+});
