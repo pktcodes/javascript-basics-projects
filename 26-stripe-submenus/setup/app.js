@@ -1,4 +1,4 @@
-import sublinks from "./data.js";
+import subLinks from "./data.js";
 import getElement from "./getElement.js";
 
 const toggleBtn = getElement(".toggle-btn");
@@ -17,3 +17,26 @@ toggleBtn.addEventListener("click", () => {
 closeBtn.addEventListener("click", () => {
   sidebarWrapper.classList.remove("show");
 });
+
+console.table(subLinks);
+
+/* Set SubLinks */
+sidebarLinks.innerHTML = subLinks
+  .map((subLink) => {
+    const { page, links } = subLink;
+    return `<article>
+              <h4>${page}</h4>
+              <div class="sidebar-sublinks">
+              ${links
+                .map((link) => {
+                  const { label, icon, url } = link;
+                  return `<a href="${url}" class="link">
+                            <i class="${icon}"></i>
+                            ${label}
+                          </a>`;
+                })
+                .join("")}
+              </div>
+            </article>`;
+  })
+  .join("");
