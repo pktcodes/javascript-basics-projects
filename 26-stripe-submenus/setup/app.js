@@ -52,9 +52,19 @@ linkBtns.forEach((btn) => {
     const tempPage = subLinks.find(({ page }) => page === text);
     if (tempPage) {
       const { page, links } = tempPage;
+
+      /* OPTIONAL - Submenu Colmuns Layout */
+      let columns = "col-2";
+      if (links.length === 3) {
+        columns = "col-3";
+      }
+      if (links.length > 3) {
+        columns = "col-4";
+      }
+
       submenu.innerHTML = `<section>
                             <h4>${page}</h4>
-                            <div class="submenu-center col-2">
+                            <div class="submenu-center ${columns}">
                             ${links
                               .map((link) => {
                                 const { label, icon, url } = link;
@@ -70,4 +80,15 @@ linkBtns.forEach((btn) => {
       submenu.classList.add("show");
     }
   });
+});
+
+// Hide subMenu
+hero.addEventListener("mouseover", () => {
+  submenu.classList.remove("show");
+});
+
+nav.addEventListener("mouseover", (event) => {
+  if (!event.target.classList.contains("link-btn")) {
+    submenu.classList.remove("show");
+  }
 });
