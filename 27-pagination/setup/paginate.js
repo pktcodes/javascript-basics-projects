@@ -1,5 +1,5 @@
 const paginate = (followers) => {
-  const itemsPerPage = 9;
+  const itemsPerPage = 12;
   const numberOfPages = Math.ceil(followers.length / itemsPerPage);
   const newFollowers = Array.from({ length: numberOfPages }, (_, index) => {
     const start = index * itemsPerPage;

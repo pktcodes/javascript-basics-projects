@@ -15,11 +15,35 @@ const setupUI = () => {
   displayButtons(btnContainer, pages, index);
 };
 
+/* Initial Load */
 const init = async () => {
   const followers = await fetchFollowers();
   title.textContent = "pagination";
   pages = paginate(followers);
   setupUI(followers);
 };
+
+/* Clicking Buttons  */
+btnContainer.addEventListener("click", (event) => {
+  if (event.target.classList.contains("btn-container")) {
+    return;
+  }
+  if (event.target.classList.contains("page-btn")) {
+    index = parseInt(event.target.dataset.index);
+  }
+  if (event.target.classList.contains("next-btn")) {
+    index++;
+    if (index > pages.length - 1) {
+      index = 0;
+    }
+  }
+  if (event.target.classList.contains("prev-btn")) {
+    index--;
+    if (index < 0) {
+      index = pages.length - 1;
+    }
+  }
+  setupUI();
+});
 
 window.addEventListener("load", init);
