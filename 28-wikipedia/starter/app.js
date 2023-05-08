@@ -41,5 +41,14 @@ const fetchPages = async (searchValue) => {
 
 /* Render Data */
 const renderResults = (list) => {
-  console.log(list);
+  const cardsList = list
+    .map((page) => {
+      const { pageid, title, snippet } = page;
+      return `<a href="http://en.wikipedia.org/?curid=${pageid}" target="_blank">
+                <h4>${title}</h4>
+                <p>${snippet}</p>
+            </a>`;
+    })
+    .join("");
+  resultsDOM.innerHTML = `<div class="articles">${cardsList}</div>`;
 };
