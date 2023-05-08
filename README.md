@@ -96,6 +96,22 @@ https://javascript-basics-projects-prod.netlify.app/23-random-user/setup/index.h
 
 https://javascript-basics-projects-prod.netlify.app/24-cocktails/setup/index.html
 
+#### 25 - ES6 Slider
+
+https://javascript-basics-projects-prod.netlify.app/25-slider/setup/index.html
+
+#### 26 - Stripe Submenus
+
+https://javascript-basics-projects-prod.netlify.app/26-stripe-submenus/setup/index.html
+
+#### 27 - Pagination
+
+https://javascript-basics-projects-prod.netlify.app/27-pagination/setup/index.html
+
+#### 28 - Wikipedia
+
+https://javascript-basics-projects-prod.netlify.app/28-wikipedia/starter/index.html
+
 ---
 
 _Note: I have developed these projects as part of Javascript Tutorial and Projects Course taught by John Smilga._
