@@ -92,6 +92,51 @@
     </div>
     <!-- End of Sidebar -->
 
+    <!-- Cart -->
+    <div class="cart-overlay">
+      <aside class="cart">
+        <button class="cart-close">
+          <i class="fas fa-times"></i>
+        </button>
+        <header>
+          <h2 class="text-slanted">your bag</h2>
+        </header>
+        <!-- Cart Items -->
+        <div class="cart-items">
+          <!-- Single Cart Item -->
+          <article class="cart-item" data-id="">
+            <img
+              src="./images/main-bcg.jpeg"
+              alt="name"
+              class="cart-item-img"
+            />
+            <div>
+              <h4 class="cart-item-name">high-back-bench</h4>
+              <p class="cart-item-price">$12.99</p>
+              <button class="cart-item-remove-btn">remove</button>
+            </div>
+            <!-- Amount Toggle -->
+            <div>
+              <button class="cart-item-increase-btn">
+                <i class="fas fa-chevron-up"></i>
+              </button>
+              <p class="cart-item-amount">1</p>
+              <button class="cart-item-decrease-btn">
+                <i class="fas fa-chevron-down"></i>
+              </button>
+            </div>
+          </article>
+          <!-- End of Single Cart Item -->
+        </div>
+        <!-- Footer -->
+        <footer>
+          <h2 class="text-slanted cart-total">total : $13.99</h2>
+          <button class="cart-checkout btn">checkout</button>
+        </footer>
+      </aside>
+    </div>
+    <!-- End of Cart -->
+
     <!-- JavaScript -->
     <script type="module" src="index.js"></script>
   </body>
