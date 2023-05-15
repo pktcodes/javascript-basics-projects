@@ -11,8 +11,10 @@ import { getElement } from "./src/utils.js";
 const init = async () => {
   const products = await fetchProducts();
   if (products) {
+    // Add Products to Store
     setupStore(products);
-    console.log(store);
+    const featured = store.filter((product) => product.featured === true);
+    console.log(featured);
   }
 };
 
