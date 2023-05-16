@@ -11,10 +11,10 @@ import { getElement } from "./src/utils.js";
 const init = async () => {
   const products = await fetchProducts();
   if (products) {
-    // Add Products to Store
+    // Data Massaging and Add Products to Store
     setupStore(products);
     const featured = store.filter((product) => product.featured === true);
-    console.log(featured);
+    display(featured, getElement(".featured-center"));
   }
 };
 
