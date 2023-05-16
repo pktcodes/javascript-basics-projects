@@ -29,6 +29,13 @@ const display = (products, element) => {
                 </article>`;
     })
     .join("");
+
+  element.addEventListener("click", (event) => {
+    const button = event.target.parentElement;
+    if (button.classList.contains("product-cart-btn")) {
+      addToCart(button.dataset.id);
+    }
+  });
 };
 
 export default display;
