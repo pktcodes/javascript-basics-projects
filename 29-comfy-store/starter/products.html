@@ -138,7 +138,31 @@
     <!-- Products Section -->
     <section class="products">
       <!-- Filters -->
-      <div class="filters"></div>
+      <div class="filters">
+        <div class="filters-container">
+          <!-- Search -->
+          <form class="input-form">
+            <input type="text" class="search-input" placeholder="search..." />
+          </form>
+          <!-- Categories -->
+          <h4>company</h4>
+          <article class="companies">
+            <button class="company-btn">all</button>
+            <button class="company-btn">ikea</button>
+          </article>
+          <!-- Price -->
+          <h4>price</h4>
+          <form class="price-form">
+            <input
+              type="range"
+              class="price-filter"
+              min="0"
+              value="50"
+              max="100"
+            />
+          </form>
+        </div>
+      </div>
       <!-- Products -->
       <div class="products-container"></div>
     </section>
