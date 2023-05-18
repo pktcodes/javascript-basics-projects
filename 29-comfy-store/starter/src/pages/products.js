@@ -17,4 +17,7 @@ const loading = getElement(".page-loading");
 
 display(store, getElement(".products-container"));
 
+// Search
+setupSearch(store);
+
 loading.style.display = "none";
