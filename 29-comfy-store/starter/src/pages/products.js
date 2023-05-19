@@ -19,5 +19,6 @@ display(store, getElement(".products-container"));
 
 // Search
 setupSearch(store);
+setupCompanies(store);
 
 loading.style.display = "none";
