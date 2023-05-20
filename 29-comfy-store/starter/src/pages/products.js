@@ -20,5 +20,6 @@ display(store, getElement(".products-container"));
 // Search
 setupSearch(store);
 setupCompanies(store);
+setupPrice(store);
 
 loading.style.display = "none";
