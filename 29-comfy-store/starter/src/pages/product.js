@@ -29,7 +29,28 @@ window.addEventListener("DOMContentLoaded", async () => {
     const response = await fetch(`${singleProductUrl}${urlID}`);
     if (response.status >= 200 && response.status <= 299) {
       const product = await response.json();
-      console.log(product);
+
+      //   Destructure Data
+      const { id, fields } = product;
+      productID = id;
+
+      const { name, company, colors, price, description } = fields;
+      const image = fields.image[0].thumbnails.large.url;
+
+      //   Set Values
+      document.title = `${name.toUpperCase()} | Comfy`;
+      pageTitleDOM.textContent = `home / ${name}`;
+      imgDOM.src = image;
+      titleDOM.textContent = name;
+      companyDOM.textContent = `by ${company}`;
+      priceDOM.textContent = formatPrice(price);
+      descDOM.textContent = description;
+      colors.forEach((color) => {
+        const spanElement = document.createElement("span");
+        spanElement.classList.add("product-color");
+        spanElement.style.background = color;
+        colorsDOM.appendChild(spanElement);
+      });
     } else {
       console.log(response.status, response.statusText);
       centerDOM.innerHTML = `
@@ -44,4 +65,8 @@ window.addEventListener("DOMContentLoaded", async () => {
 
   //  Once the product is ready to display, hide the loading
   loading.style.display = "none";
+});
+
+cartBtn.addEventListener("click", () => {
+  addToCart(productID);
 });
