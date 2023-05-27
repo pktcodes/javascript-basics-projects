@@ -34,7 +34,28 @@ export const addToCart = (id) => {
     console.log("Update Values in Cart");
   }
 
+  // Display Cart Item Count
+  displayCartItemCount();
+  // Display Cart Total
+  displayCartTotal();
+  // Set Cart to Local Storage for Synchronization across pages
+  setStorageItem("cart", cart);
+
   openCart();
+};
+
+const displayCartItemCount = () => {
+  const amount = cart.reduce((total, cartItem) => {
+    return (total += cartItem.amount);
+  }, 0);
+  cartItemCount.textContent = amount;
+};
+
+const displayCartTotal = () => {
+  const total = cart.reduce((total, cartItem) => {
+    return (total += cartItem.price * cartItem.amount);
+  }, 0);
+  cartTotal.textContent = `total : ${formatPrice(total)}`;
 };
 
 const init = () => {
