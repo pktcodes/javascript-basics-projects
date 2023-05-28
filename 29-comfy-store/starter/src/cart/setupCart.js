@@ -85,6 +85,18 @@ const increaseAmount = (id) => {
   return newAmount;
 };
 
+const decreaseAmount = (id) => {
+  let newAmount;
+  cart = cart.map((cartItem) => {
+    if (cartItem.id === id) {
+      newAmount = cartItem.amount - 1;
+      cartItem = { ...cartItem, amount: newAmount };
+    }
+    return cartItem;
+  });
+  return newAmount;
+};
+
 const setupCartFunctionality = () => {
   cartItemsDOM.addEventListener("click", (event) => {
     const element = event.target;
@@ -106,6 +118,15 @@ const setupCartFunctionality = () => {
     }
 
     // Decrease Item
+    if (parent.classList.contains("cart-item-decrease-btn")) {
+      const newAmount = decreaseAmount(parentId);
+      if (newAmount < 1) {
+        removeItem(parentId);
+        parent.parentElement.parentElement.remove();
+      } else {
+        parent.previousElementSibling.textContent = newAmount;
+      }
+    }
 
     displayCartItemCount();
     displayCartTotal();
