@@ -1,4 +1,4 @@
-// import
+// importcartTotal
 import {
   getStorageItem,
   setStorageItem,
@@ -10,9 +10,9 @@ import { findProduct } from "../store.js";
 import addToCartDOM from "./addToCartDOM.js";
 // set items
 
-const cartItemCount = getElement(".cart-item-count");
-const cartItems = getElement(".cart-items");
-const cartTotal = getElement(".cart-total");
+const cartItemCountDOM = getElement(".cart-item-count");
+const cartItemsDOM = getElement(".cart-items");
+const cartTotalDOM = getElement(".cart-total");
 
 let cart = getStorageItem("cart");
 
@@ -31,7 +31,12 @@ export const addToCart = (id) => {
     addToCartDOM(product);
   } else {
     // Update values of existing item in Cart
-    console.log("Update Values in Cart");
+    const amount = increaseAmount(id);
+    const items = [...cartItemsDOM.querySelectorAll(".cart-item-amount")];
+    const updateCartItemAmountDOM = items.find(
+      (value) => value.dataset.id === id
+    );
+    updateCartItemAmountDOM.textContent = amount;
   }
 
   // Display Cart Item Count
@@ -48,20 +53,32 @@ const displayCartItemCount = () => {
   const amount = cart.reduce((total, cartItem) => {
     return (total += cartItem.amount);
   }, 0);
-  cartItemCount.textContent = amount;
+  cartItemCountDOM.textContent = amount;
 };
 
 const displayCartTotal = () => {
   const total = cart.reduce((total, cartItem) => {
     return (total += cartItem.price * cartItem.amount);
   }, 0);
-  cartTotal.textContent = `total : ${formatPrice(total)}`;
+  cartTotalDOM.textContent = `total : ${formatPrice(total)}`;
 };
 
 const displayCartItemsDOM = () => {
   cart.forEach((cartItem) => {
     addToCartDOM(cartItem);
   });
+};
+
+const increaseAmount = (id) => {
+  let newAmount;
+  cart = cart.map((cartItem) => {
+    if (cartItem.id === id) {
+      newAmount = cartItem.amount + 1;
+      cartItem = { ...cartItem, amount: newAmount };
+    }
+    return cartItem;
+  });
+  return newAmount;
 };
 
 const setupCartFunctionality = () => {};
