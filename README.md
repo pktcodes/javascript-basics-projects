@@ -112,6 +112,10 @@ https://javascript-basics-projects-prod.netlify.app/27-pagination/setup/index.ht
 
 https://javascript-basics-projects-prod.netlify.app/28-wikipedia/starter/index.html
 
+#### 29 - Comfy Store
+
+https://javascript-basics-projects-prod.netlify.app/29-comfy-store/starter/index.html
+
 ---
 
 _Note: I have developed these projects as part of Javascript Tutorial and Projects Course taught by John Smilga._
