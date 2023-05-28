@@ -100,6 +100,10 @@ const setupCartFunctionality = () => {
     }
 
     // Increase Item
+    if (parent.classList.contains("cart-item-increase-btn")) {
+      const newAmount = increaseAmount(parentId);
+      parent.nextElementSibling.textContent = newAmount;
+    }
 
     // Decrease Item
 
