@@ -2,7 +2,7 @@ import { formatPrice } from "./utils.js";
 import { addToCart } from "./cart/setupCart.js";
 
 // Display Products
-const display = (products, element) => {
+const display = (products, element, filters) => {
   element.innerHTML = products
     .map((product) => {
       const { id, image, name, price } = product;
@@ -29,6 +29,8 @@ const display = (products, element) => {
                 </article>`;
     })
     .join("");
+
+  if (filters === true) return;
 
   element.addEventListener("click", (event) => {
     const button = event.target.parentElement;
