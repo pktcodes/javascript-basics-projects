@@ -58,8 +58,24 @@ const displayCartTotal = () => {
   cartTotal.textContent = `total : ${formatPrice(total)}`;
 };
 
+const displayCartItemsDOM = () => {
+  cart.forEach((cartItem) => {
+    addToCartDOM(cartItem);
+  });
+};
+
+const setupCartFunctionality = () => {};
+
+// Run to get latest data values from cart store array across all pages
 const init = () => {
-  console.log(cart);
+  // Display Cart Item Count
+  displayCartItemCount();
+  // Display Cart Total
+  displayCartTotal();
+  // Display Cart Items
+  displayCartItemsDOM();
+  // Setup Cart Functionality - Buttons
+  setupCartFunctionality();
 };
 
 init();
