@@ -69,6 +69,10 @@ const displayCartItemsDOM = () => {
   });
 };
 
+const removeItem = (id) => {
+  cart = cart.filter((cartItem) => cartItem.id !== id);
+};
+
 const increaseAmount = (id) => {
   let newAmount;
   cart = cart.map((cartItem) => {
@@ -81,7 +85,29 @@ const increaseAmount = (id) => {
   return newAmount;
 };
 
-const setupCartFunctionality = () => {};
+const setupCartFunctionality = () => {
+  cartItemsDOM.addEventListener("click", (event) => {
+    const element = event.target;
+    const parent = event.target.parentElement;
+    const id = event.target.dataset.id;
+    const parentId = event.target.parentElement.dataset.id;
+
+    // Remove Item
+    if (element.classList.contains("cart-item-remove-btn")) {
+      removeItem(id);
+      // parent.parentElement.remove();
+      element.parentElement.parentElement.remove();
+    }
+
+    // Increase Item
+
+    // Decrease Item
+
+    displayCartItemCount();
+    displayCartTotal();
+    setStorageItem("cart", cart);
+  });
+};
 
 // Run to get latest data values from cart store array across all pages
 const init = () => {
